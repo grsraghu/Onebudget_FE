@@ -1,1 +1,37 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+/* 1. Define the scrollable area */
+.table-viewport {
+  max-height: 400px; /* Adjust based on your layout */
+  overflow: auto;
+  border-radius: 8px;
+}
+
+/* 2. Style the Scrollbar for Chrome, Edge, Safari */
+.table-viewport::-webkit-scrollbar {
+  width: 8px;   /* Vertical scrollbar width */
+  height: 8px;  /* Horizontal scrollbar height */
+}
+
+.table-viewport::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+.table-viewport::-webkit-scrollbar-thumb {
+  background: #27ae60; /* OneBudget Green */
+  border-radius: 10px;
+}
+
+.table-viewport::-webkit-scrollbar-thumb:hover {
+  background: #1e8449; /* Darker green on hover */
+}
+
+/* 3. Style for Firefox */
+.table-viewport {
+  scrollbar-width: thin;
+  scrollbar-color: #27ae60 #f1f1f1;
+}

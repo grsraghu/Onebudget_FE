@@ -1,0 +1,25 @@
+<div class="app-container">
+      <nav class="navbar">
+        <div class="logo">OneBudget</div>
+        <ul class="nav-links">
+          <li><a routerLink="/dashboard" routerLinkActive="active">Dashboard</a></li>
+          <li><a routerLink="/transactions" routerLinkActive="active">Transactions</a></li>
+          <li><a routerLink="/settings" routerLinkActive="active">Settings</a></li>
+        </ul>
+      </nav>
+
+      <div class="main-content">
+        <aside class="sidebar">
+          <p>Quick Actions</p>
+          <button>Add Expense</button>
+        </aside>
+        
+        <main class="content-area">
+          <router-outlet></router-outlet>
+        </main>
+      </div>
+
+      <footer class="footer">
+        &copy; 2026 OneBudget Local
+      </footer>
+    </div>

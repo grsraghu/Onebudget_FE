@@ -1,0 +1,11 @@
+.app-container { display: flex; flex-direction: column; min-height: 100vh; }
+    .navbar { display: flex; justify-content: space-between; padding: 1rem 2rem; background: #2c3e50; color: white; }
+    .nav-links { display: flex; list-style: none; gap: 20px; }
+    .nav-links a { color: #bdc3c7; text-decoration: none; }
+    .nav-links a.active { color: white; font-weight: bold; }
+    
+    .main-content { display: flex; flex: 1; }
+    .sidebar { width: 200px; background: #f4f7f6; padding: 1rem; border-right: 1px solid #ddd; }
+    .content-area { flex: 1; padding: 2rem; background: #fff; }
+    
+    .footer { padding: 1rem; text-align: center; background: #ecf0f1; font-size: 0.8rem; }
