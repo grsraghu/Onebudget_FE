@@ -1,5 +1,5 @@
 export const environment = 
 {
   production: false,
-  apiUrl: 'https://localhost:44315/api' // Your local backend
+  apiUrl: 'http://localhost:5074/api' // Your local backend
 };

@@ -1,0 +1,32 @@
+
+
+  <table mat-table [dataSource]="dataSource" class="scroll-container">
+
+    <ng-container matColumnDef="budgetID">
+      <th mat-header-cell *matHeaderCellDef> ID </th>
+      <td mat-cell *matCellDef="let element"> {{element.budgetID}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="budgetName">
+      <th mat-header-cell *matHeaderCellDef> Name </th>
+      <td mat-cell *matCellDef="let element" class="font-medium"> {{element.budgetName}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="category">
+      <th mat-header-cell *matHeaderCellDef> Category </th>
+      <td mat-cell *matCellDef="let element"> {{element.category}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="plannedAmount">
+      <th mat-header-cell *matHeaderCellDef> Planned Amount </th>
+      <td mat-cell *matCellDef="let element"> {{element.plannedAmount | currency}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="createdDate">
+      <th mat-header-cell *matHeaderCellDef> Created Date </th>
+      <td mat-cell *matCellDef="let element"> {{element.createdDate | date:'mediumDate'}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;" class="table-row"></tr>
+  </table>

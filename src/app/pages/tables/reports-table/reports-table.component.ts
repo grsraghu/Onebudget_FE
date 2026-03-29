@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { ApiService } from '../../services/api/api.service';
-import { Reports } from '../../models/reports';
+import { ApiService } from '../../../services/api/api.service';
+import { Reports } from '../../../models/reports';
 import { CommonModule } from '@angular/common';
 import { DatePipe } from '@angular/common';
 import {MatTableModule,MatTableDataSource} from '@angular/material/table';
