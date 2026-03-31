@@ -1,6 +1,6 @@
 export interface TransactionLog
 {
-    TransactionID: number;
+    id: number;
     name: string;
     description: string;
     createdDate: Date;

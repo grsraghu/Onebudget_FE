@@ -27,7 +27,7 @@ export class ApiService {
 
 getTransactions()
 {
-  return this.http.get<TransactionLog[]>(`${this.baseUrl}/transactions`);
+  return this.http.get<TransactionLog[]>(`${this.baseUrl}/transactionsLog`);
 }
 
 getBudgets()

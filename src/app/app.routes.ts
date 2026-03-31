@@ -6,14 +6,15 @@ export const routes: Routes = [
     path: '',
     component: MainLayoutComponent, // This wraps everything below
     children: [
-      { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+      { path: '', redirectTo: 'tabs', pathMatch: 'full' },
       { 
         path: 'dashboard', 
         loadComponent: () => import('./pages/dashboard/dashboard.component').then(m => m.DashboardComponent) 
        },
       { 
         path: 'tabs', 
-        loadComponent: () => import('./pages/tabgroup/tabgroup.component').then(m => m.TabgroupComponent) 
+        loadComponent: () => import('./pages/tabgroup/tabgroup.component').then(m => m.TabgroupComponent) ,
+      
       }
     ]
   }

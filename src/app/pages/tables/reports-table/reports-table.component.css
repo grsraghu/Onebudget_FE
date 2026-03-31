@@ -1,4 +1,4 @@
-.table-container {
+/* .table-container {
   margin: 20px;
   border-radius: 12px;
   overflow: hidden;
@@ -25,8 +25,6 @@ table {
   cursor: pointer;
   transition: background 0.2s ease;
 }
-
-
 
 .font-medium { font-weight: 500; color: #34495e; }
 
@@ -57,4 +55,4 @@ td.mat-mdc-cell {
     /* text-transform: uppercase; */
     letter-spacing: 0.5px;
 
-}
+} */
