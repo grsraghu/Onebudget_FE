@@ -1,4 +1,15 @@
-  <table mat-table [dataSource]="transactions" class="scroll-container">
+ 
+  <div class="container">
+  <app-list-header 
+  [searchTitle]="'Search Transactions Logs'" 
+  [searchPlaceHolder]="'January Transactions...'"
+  (add)="openAddTransactionDialog()"
+  (search)="searchTransactions($event)"
+  (clear)="OnClearSearch()">
+ </app-list-header>
+
+
+    <table mat-table [dataSource]="filteredTransactions" class="scroll-container">
 
     <ng-container matColumnDef="id">
       <th mat-header-cell *matHeaderCellDef> ID </th>
@@ -23,3 +34,5 @@
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;" class="table-row"></tr>
   </table>
+
+</div>

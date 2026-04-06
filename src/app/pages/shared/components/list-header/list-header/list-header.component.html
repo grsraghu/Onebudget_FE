@@ -1,0 +1,25 @@
+<div class="header-container">    <!-- <h2>{{ searchTitle }}</h2> -->
+    <mat-form-field appearance="outline" class="search-field">
+        
+        <mat-label>{{searchTitle}} </mat-label>
+
+        <input matInput [(ngModel)]="searchTerm" (ngModelChange)="onSearchChange()" 
+        placeholder="{{searchPlaceHolder}}" >
+        
+        @if (searchTerm)
+         {
+        <button mat-icon-button matSuffix (click)="clearSearch()">
+          <mat-icon>close</mat-icon>
+        </button>
+         }
+    </mat-form-field>
+       
+    <button mat-fab extended color="primary" (click)="onAddClick()" class="list-button">
+    <mat-icon>add</mat-icon>
+    Add Transaction
+  </button>
+
+      
+  
+  
+</div>
