@@ -1,5 +1,11 @@
  
-  <div class="container">
+<!-- Child to parent communication through event binding and event emitter.
+   Child event handlers (add, search, clear) are bound to the parent component's methods. When the child component emits an event, the corresponding method in the parent component is invoked. -->
+   <!-- Parent - TransactionsLogTableComponent Child - ListHeaderComponent
+   Parent to child communication. 
+   This HTML passes the values of searchTitle and searchPlaceHolder to the child component ListHeaderComponent. -->
+
+<div class="container">
   <app-list-header 
   [searchTitle]="'Search Transactions Logs'" 
   [searchPlaceHolder]="'January Transactions...'"
@@ -8,8 +14,7 @@
   (clear)="OnClearSearch()">
  </app-list-header>
 
-
-    <table mat-table [dataSource]="filteredTransactions" class="scroll-container">
+    <table mat-table [dataSource]="dataSourceFiltered" class="scroll-container">
 
     <ng-container matColumnDef="id">
       <th mat-header-cell *matHeaderCellDef> ID </th>

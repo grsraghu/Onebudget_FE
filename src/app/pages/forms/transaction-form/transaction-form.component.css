@@ -1,0 +1,56 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.records-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-top: 8px;
+}
+
+.record-row {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  width: 100%;
+}
+
+/* Flex layout spacing for screen scaling */
+.col-category {
+  flex: 2;
+  min-width: 180px;
+}
+
+.col-subcategory {
+  flex: 2;
+  min-width: 160px;
+}
+
+.col-amount {
+  flex: 1;
+  min-width: 130px;
+}
+
+.col-date {
+  flex: 1.5;
+  min-width: 160px;
+}
+
+.row-actions {
+  display: flex;
+  align-items: center;
+  margin-bottom: 22px; /* Vertically aligns icons with form fields */
+}
+
+mat-dialog-content {
+  overflow-x: hidden;
+  max-height: 65vh;
+}
+
+mat-dialog-actions {
+  border-top: 1px solid #e0e0e0;
+  padding: 16px 24px !important;
+}

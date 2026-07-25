@@ -12,6 +12,8 @@
   display: flex;
   align-items: center;
   justify-content: space-between; /* pushes first child left, button right */
+  /* align-items: center; */
+  /* padding: 0rem 16px; */
 }
 
   .search-field { 
