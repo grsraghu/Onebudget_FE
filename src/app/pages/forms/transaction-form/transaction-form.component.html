@@ -13,8 +13,8 @@
         <mat-form-field appearance="outline" class="col-category">
           <mat-label>Category</mat-label>
           <mat-select formControlName="category">
-            <mat-option *ngFor="let cat of categories" [value]="cat">
-              {{ cat }}
+            <mat-option *ngFor="let cat of categoriesList" [value]="cat">
+              {{ cat.name }}
             </mat-option>
           </mat-select>
           <mat-error *ngIf="record.get('category')?.hasError('required')">

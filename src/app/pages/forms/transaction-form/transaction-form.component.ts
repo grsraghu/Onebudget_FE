@@ -12,6 +12,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 import { ApiService } from '../../../services/api/api.service';
+import{Category} from '../../../models/Category/catergory';
 
 @Component({
   selector: 'app-transaction-form',
@@ -32,9 +33,9 @@ import { ApiService } from '../../../services/api/api.service';
   styleUrl: './transaction-form.component.css'
 })
 export class TransactionFormComponent implements OnInit {
-  private fb = inject(FormBuilder);
+  private fb = inject(FormBuilder); // Inject FormBuilder for reactive forms. Declare 
   private dialogRef = inject(MatDialogRef<TransactionFormComponent>);
-  // private apiService = inject(ApiService);
+  private apiService = inject(ApiService);
 
   // Mock Category Dropdown Options
   categories: string[] = [
@@ -46,17 +47,20 @@ export class TransactionFormComponent implements OnInit {
     'Financial & Savings'
   ];
 
+  categoriesList: Category[] = new Array<Category>();
+
   // Main Form Group containing the FormArray
-  transactionFormGroup: FormGroup = this.fb.group({
-    records: this.fb.array([])
-  });
+  transactionFormGroup: FormGroup = this.fb.group({records: this.fb.array([])});
 
   // Getter for easy template access
+  // Similar  to C# property, this getter allows us to access the FormArray in the template
   get records(): FormArray {
     return this.transactionFormGroup.get('records') as FormArray;
   }
 
   ngOnInit(): void {
+    // Fetch categories from the API when the component initializes
+    this.getCategories();
     // Add one initial row when form opens
     this.addItem();
   }
@@ -71,7 +75,16 @@ export class TransactionFormComponent implements OnInit {
     });
   }
 
-  // Add new row to FormArray
+  getCategories(): void {
+    // This method would typically call the ApiService to fetch categories from the backend
+    // For now, we are using mock data defined in the categories array above
+   this.apiService.getCategories().subscribe((data: Category[]) => {
+      this.categoriesList = data;
+    });
+    
+  }
+
+  // Add new row to the FormArray
   addItem(): void {
     this.records.push(this.createRowGroup());
   }
