@@ -11,8 +11,10 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
+import { MatSelectChange } from '@angular/material/select';
 import { ApiService } from '../../../services/api/api.service';
 import{Category} from '../../../models/Category/catergory';
+import { Subcategory } from '../../../models/Category/subcategory';
 
 @Component({
   selector: 'app-transaction-form',
@@ -36,6 +38,9 @@ export class TransactionFormComponent implements OnInit {
   private fb = inject(FormBuilder); // Inject FormBuilder for reactive forms. Declare 
   private dialogRef = inject(MatDialogRef<TransactionFormComponent>);
   private apiService = inject(ApiService);
+
+  selectedCategory: Category | null = null; // To hold the selected category for subcategory filtering
+  selectedIndex: number | null = null; // To hold the index of the selected category for subcategory filtering
 
   // Mock Category Dropdown Options
   categories: string[] = [
@@ -84,6 +89,11 @@ export class TransactionFormComponent implements OnInit {
     
   }
 
+  getSubCategories(categoryID:number): Subcategory[] 
+  {
+    return this.categoriesList.find(cat=>cat.id === categoryID)?.subcategories || [];
+  }
+
   // Add new row to the FormArray
   addItem(): void {
     this.records.push(this.createRowGroup());
@@ -95,6 +105,20 @@ export class TransactionFormComponent implements OnInit {
       this.records.removeAt(index);
     }
   }
+
+onCategoryChange(index: number, event: MatSelectChange) : void 
+{
+  if (!event.value) {
+    this.selectedCategory = null;
+    return;
+  }
+
+  const selectedValue = event.value as Category;
+  const selectedIndex = event.source.tabIndex;
+
+  this.selectedCategory = selectedValue;
+
+}
 
   // Form Submission
   onSubmit(): void {

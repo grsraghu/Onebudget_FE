@@ -12,7 +12,7 @@
         <!-- 1. Category Dropdown -->
         <mat-form-field appearance="outline" class="col-category">
           <mat-label>Category</mat-label>
-          <mat-select formControlName="category">
+          <mat-select formControlName="category" (selectionChange)="onCategoryChange(i, $event)">
             <mat-option *ngFor="let cat of categoriesList" [value]="cat">
               {{ cat.name }}
             </mat-option>
@@ -22,10 +22,17 @@
           </mat-error>
         </mat-form-field>
 
-        <!-- 2. Sub Category Textbox -->
-        <mat-form-field appearance="outline" class="col-subcategory">
+        <!-- 2. Sub Category Editable Dropdown . TODO Editable Drop down-->
+         <mat-form-field appearance="outline" class="col-category">
           <mat-label>Sub Category</mat-label>
-          <input matInput formControlName="subCategory" placeholder="e.g. Groceries">
+          <mat-select formControlName="subcategory">
+            <mat-option *ngFor="let subcat of selectedCategory?.subcategories" [value]="subcat" >
+              {{ subcat.name }}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="record.get('subcategory')?.hasError('required')">
+            Sub Category required
+          </mat-error>
         </mat-form-field>
 
         <!-- 3. Decimal Amount Input -->
